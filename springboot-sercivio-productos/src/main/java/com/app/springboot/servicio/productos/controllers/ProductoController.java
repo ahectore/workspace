@@ -21,7 +21,7 @@ public class ProductoController {
 		return productoService.findAll();
 	}
 	
-	@GetMapping("/listar/{id}")
+	@GetMapping("/ver/{id}")
 	public Producto detalle(@PathVariable Long id) {  // indica que el path varia
 		return productoService.findById(id);
 	}
