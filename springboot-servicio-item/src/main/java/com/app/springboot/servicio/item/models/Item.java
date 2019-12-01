@@ -4,6 +4,7 @@ public class Item {
 	
 	private Producto producto;
 	private Integer cantidad;
+	
 	public Producto getProducto() {
 		return producto;
 	}
@@ -22,8 +23,7 @@ public class Item {
 		this.cantidad = cantidad;
 	}
 	
-	public Item() {
-	}
+	public Item() {	}
 	
 	public Double getTotal() {
 		return producto.getPrecio() * cantidad.doubleValue();
