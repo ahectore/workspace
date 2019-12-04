@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 @Entity  // interface jpa
 @Table(name="Productos") // nombre opcional si son iguales en la db
@@ -28,6 +29,9 @@ public class Producto implements Serializable{
 		@Column(name = "create_at") //se llama distinto el campo en la db
 		@Temporal(TemporalType.DATE) // formato de fecha, solo dd/mm/aaaa
 		private Date createAt;
+		
+		@Transient  // este campo no es persistente en la DB
+		private Integer port;
 		
 		public Long getId() {
 			return id;
@@ -52,6 +56,12 @@ public class Producto implements Serializable{
 		}
 		public void setCreateAt(Date createAt) {
 			this.createAt = createAt;
+		}
+		public Integer getPort() {
+			return port;
+		}
+		public void setPort(Integer port) {
+			this.port = port;
 		}
 		
 		

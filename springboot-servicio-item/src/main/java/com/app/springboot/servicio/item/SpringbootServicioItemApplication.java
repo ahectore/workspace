@@ -2,7 +2,10 @@ package com.app.springboot.servicio.item;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
+import org.springframework.cloud.netflix.ribbon.RibbonClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
+@RibbonClient(name="servicio-productos")
+@EnableFeignClients   // inyecta como si fuera un beans
 @SpringBootApplication
 public class SpringbootServicioItemApplication {
 
