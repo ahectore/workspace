@@ -2,9 +2,12 @@ package com.app.springboot.servicio.item;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.ribbon.RibbonClient;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
-@RibbonClient(name="servicio-productos")
+
+@EnableCircuitBreaker
+@EnableEurekaClient  // se puede evitar porque se habilita automaticamente en el pom
 @EnableFeignClients   // inyecta como si fuera un beans
 @SpringBootApplication
 public class SpringbootServicioItemApplication {

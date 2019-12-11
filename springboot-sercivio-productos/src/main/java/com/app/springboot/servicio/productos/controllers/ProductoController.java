@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.env.Environment;
+//import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,8 +19,8 @@ public class ProductoController {
 	@Autowired
 	private IProductoService productoService;
 	
-	@Autowired
-	private Environment env;
+	//@Autowired
+	//private Environment env;
 	
 	@Value("${server.port}")  // inyecta valores de lo propertys
 	private Integer port;
@@ -35,10 +35,17 @@ public class ProductoController {
 	}
 	
 	@GetMapping("/ver/{id}")
-	public Producto detalle(@PathVariable Long id) {  // indica que el path varia
+	public Producto detalle(@PathVariable Long id) throws Exception {  // indica que el path varia
 		Producto producto = productoService.findById(id);
 		//producto.setPort(Integer.parseInt(env.getProperty("local.server.port")));
 		producto.setPort(port);
+		
+		/*Thread.sleep(2000L);
+		
+		/*boolean ok = false;
+		if(ok)
+		{throw new Exception("no se encuentra el producto");}*/
+		
 		return producto;
 	}
 	
